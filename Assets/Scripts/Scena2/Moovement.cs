@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class Moovement : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Moovement : MonoBehaviour
     [SerializeField] Transform center;
     [SerializeField] float approachingVelocity = 1.5f;
     [SerializeField] float max_distance = 0.6f;
+    public Canvas canvas;
+    public VideoPlayer video;
 
     bool WIN = false;
     float seed;
@@ -77,7 +80,7 @@ public class Moovement : MonoBehaviour
 
     bool compute_offsetZ(Transform p1, Transform p2, float max_offset)
     {
-        float offset = MathF.Abs(p1.position.z - p2.position.z);
+        float offset = Mathf.Abs(p1.position.z - p2.position.z);
 
         return offset < max_offset;
             
@@ -86,6 +89,14 @@ public class Moovement : MonoBehaviour
     IEnumerator WaitWin()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(canvas != null)
+        {
+            canvas.gameObject.SetActive(true);
+            video.Play();
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        
+        
     }
 }

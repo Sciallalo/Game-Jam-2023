@@ -9,6 +9,7 @@ public class LanciaNeutrini : MonoBehaviour
     public List<GameObject> elettroni;
     public GameObject neutrino;
     public Ellipse ellisse;
+    public Canvas canvas;
     public VideoPlayer video;
     public float maxTime = 15f;
     private float currentTime;
@@ -43,8 +44,9 @@ public class LanciaNeutrini : MonoBehaviour
 
         if(currentTime >= maxTime)
         {
+            canvas.gameObject.SetActive(true);
             video.Play();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(WaitVideo());
         }
 
         if(tmpTime >= Random.Range(.5f, 2f))
@@ -54,5 +56,11 @@ public class LanciaNeutrini : MonoBehaviour
 
             tmpTime = 0;
         }
+    }
+
+    IEnumerator WaitVideo()
+    {
+        yield return new WaitForSeconds(4.176f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TimeLimit : MonoBehaviour
 {
     public float maxTime = 10f;
+    public Canvas canvas;
+    public VideoPlayer video;
+    public float seconds;
     private float currentTime;
-    private bool runningTimer;
     void Start()
     {
         currentTime = maxTime;
-        runningTimer = true;
     }
 
     // Update is called once per frame
@@ -20,9 +22,15 @@ public class TimeLimit : MonoBehaviour
         currentTime -= Time.deltaTime;
         if(currentTime <= 0)
         {
-            runningTimer = false;
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            StartCoroutine(GoBack());
         }
+    }
+
+    IEnumerator GoBack()
+    {
+        canvas.gameObject.SetActive(true);
+        video.Play();
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
