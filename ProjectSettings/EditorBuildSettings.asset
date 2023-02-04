@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scena1_atomo.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Scena2_neurons.unity
+    guid: c72342764fa288749a2a18f3cd8ce137
+  - enabled: 1
+    path: Assets/Scenes/Scena4_robot.unity
+    guid: 0df40bf649507bc4b9415db6c68fbdfd
   m_configObjects: {}
