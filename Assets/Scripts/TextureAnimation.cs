@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class TextureAnimation : MonoBehaviour
 
     public Material material;
     public int count = 0;
+    public bool stop;
 
     private static readonly int Texture2D1 = Shader.PropertyToID("_Texture2D");
 
@@ -16,19 +18,31 @@ public class TextureAnimation : MonoBehaviour
     void Start()
     {
         material = GetComponent<Renderer>().sharedMaterial;
+    }
+
+    private void OnEnable()
+    {
+        material = GetComponent<Renderer>().sharedMaterial;
+        StartCoroutine(Animate());
+    }
+
+    private void Update()
+    {
+        if (stop) return;
+        
+        if (count < textures.Length)
+            material.SetTexture(Texture2D1, textures[count]);
+        else
+            count = 0;
+        
+        count++;
+        stop = true;
         StartCoroutine(Animate());
     }
 
     public IEnumerator Animate()
     {
-        count = 0;
-        while (true)
-        {
-            if (count < textures.Length)
-                material.SetTexture(Texture2D1, textures[count]);
-            else count = 0;
-            count++;
-            yield return new WaitForSeconds(1/24f);
-        }
+        yield return new WaitForSeconds(1/24f);
+        stop = false;
     }
 }

@@ -266,7 +266,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 0d6252840fe29cc49b4e8c0e0ae59ed6, type: 3}
   - {fileID: 2800000, guid: 1503d8d7d793bb34d8214bc146193b29, type: 3}
   material: {fileID: 2100000, guid: 21ae557f50a445740b800f2b263ee8f7, type: 2}
-  count: 4
+  count: 13
 --- !u!1 &264223689
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,8 +762,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 5e0e39d79349bf84ba5e35a4b219bad4, type: 3}
   - {fileID: 2800000, guid: 0d6252840fe29cc49b4e8c0e0ae59ed6, type: 3}
   - {fileID: 2800000, guid: 1503d8d7d793bb34d8214bc146193b29, type: 3}
-  material: {fileID: 2100000, guid: 21ae557f50a445740b800f2b263ee8f7, type: 2}
-  count: 6
+  material: {fileID: 2100000, guid: dd1f14e0ecdef2740bd3dba368044355, type: 2}
+  count: 13
 --- !u!1 &737807370
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,15 +881,15 @@ PrefabInstance:
     - target: {fileID: -6152489731806449769, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 21ae557f50a445740b800f2b263ee8f7, type: 2}
+      objectReference: {fileID: 2100000, guid: dd1f14e0ecdef2740bd3dba368044355, type: 2}
     - target: {fileID: -3019712628144092751, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9a409bf27ce009d48bb521765557db19, type: 2}
+      objectReference: {fileID: 2100000, guid: 26b28db3911d26c4e8409d7d8de0b779, type: 2}
     - target: {fileID: -1505949239169735655, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 21ae557f50a445740b800f2b263ee8f7, type: 2}
+      objectReference: {fileID: 2100000, guid: dd1f14e0ecdef2740bd3dba368044355, type: 2}
     - target: {fileID: 919132149155446097, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_Name
       value: watering (1)
@@ -901,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 1137574681316950264, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9a409bf27ce009d48bb521765557db19, type: 2}
+      objectReference: {fileID: 2100000, guid: 26b28db3911d26c4e8409d7d8de0b779, type: 2}
     - target: {fileID: 1387631132926209426, guid: 7ee8ea401283c7647b737b3c963de4dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   movement_x: 4
   splash: {fileID: 627660210}
   water: {fileID: 1539089406}
-  increment: 0.1
+  increment: 0.5
   time: 1.8
   pianta: {fileID: 1933592677}
   percentage: 0
@@ -1464,7 +1464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -2632753719056517104, guid: 285e2dbf86cfe0543b8e4935c280e993, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
