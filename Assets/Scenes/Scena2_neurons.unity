@@ -288,7 +288,8 @@ MonoBehaviour:
   moovement_velocity: 0.1
   range_z: 3.3
   center: {fileID: 36410504}
-  approachingVelocity: 1.5
+  approachingVelocity: 3
+  max_distance: 0.6
 --- !u!65 &453260027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -500,7 +501,8 @@ MonoBehaviour:
   moovement_velocity: 0.1
   range_z: 3.3
   center: {fileID: 36410504}
-  approachingVelocity: 1.5
+  approachingVelocity: 3
+  max_distance: 0.6
 --- !u!23 &1519542244
 MeshRenderer:
   m_ObjectHideFlags: 0
