@@ -5,27 +5,49 @@ using UnityEngine;
 
 public class MatchBounds : MonoBehaviour
 {
-    [SerializeField] Camera cam;
-    float cameraDistance;
+    [SerializeField] float start_pos;
+    [SerializeField] float final_pos;
+    [SerializeField] float lerpDuration = 5;
+
+    float timeElapsed;
+    [SerializeField] bool horizzontal_moving;
+
+    float distance;
     Bounds bounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        cameraDistance = Mathf.Abs(cam.transform.position.y - transform.position.y); // Constant factor
-        bounds = GetComponent<BoxCollider>().bounds;
+        if (horizzontal_moving)
+        {
+            transform.position = new Vector3(start_pos, 0, 0);
+        }
+        else
+        {
+            transform.position = new Vector3(0, 0, start_pos);
+        }
+        timeElapsed = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (timeElapsed < lerpDuration)
+        {
+            float new_pos = Mathf.Lerp(start_pos, final_pos, timeElapsed / lerpDuration);
 
-        Vector3 objectSizes = bounds.max - bounds.min;
-        float objectSize = Mathf.Max(objectSizes.x, objectSizes.y, objectSizes.z);
-        float cameraView = 2.0f * Mathf.Tan(0.5f * Mathf.Deg2Rad * cam.fieldOfView); // Visible height 1 meter in front
-        float distance = cameraDistance * objectSize / cameraView; // Combined wanted distance from the object
-        distance += 0.5f * objectSize; // Estimated offset from the center to the outside of the object
-        cam.transform.position = bounds.center - distance * cam.transform.forward;
+            if (horizzontal_moving)
+            {
+                transform.position = new Vector3(new_pos, transform.position.y, transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(transform.position.x, transform.position.y, new_pos);
+            }
 
+            timeElapsed += Time.deltaTime;
+            Debug.Log(timeElapsed);
+        }
     }
+
 }
