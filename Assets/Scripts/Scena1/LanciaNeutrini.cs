@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class LanciaNeutrini : MonoBehaviour
 {
     public List<GameObject> elettroni;
     public GameObject neutrino;
     public Ellipse ellisse;
+    public VideoPlayer video;
     public float maxTime = 15f;
     private float currentTime;
     private float tmpTime;
@@ -16,6 +18,7 @@ public class LanciaNeutrini : MonoBehaviour
     {
         currentTime = 0;
         tmpTime = 0;
+        video.Stop();
     }
     
     bool CheckState()
@@ -40,15 +43,13 @@ public class LanciaNeutrini : MonoBehaviour
 
         if(currentTime >= maxTime)
         {
-            SceneManager.LoadScene(1);
+            video.Play();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if(tmpTime >= 1.5f)
+        if(tmpTime >= Random.Range(.5f, 2f))
         {
             Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
-            Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
-
-            orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
             Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
 
             tmpTime = 0;
