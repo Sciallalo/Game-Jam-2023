@@ -12,7 +12,7 @@ public class Moovement : MonoBehaviour
     [SerializeField] float approachingVelocity = 1.5f;
     [SerializeField] float max_distance = 0.6f;
 
-    bool collided = false;
+    bool WIN = false;
     float seed;
 
     Transform left_top, rightTop;
@@ -43,7 +43,7 @@ public class Moovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!collided)
+        if (!WIN)
         {
             float new_z_val = Mathf.Sin(seed) * range_z;
 
@@ -60,7 +60,7 @@ public class Moovement : MonoBehaviour
         {
             if (compute_offsetZ(left_top, rightTop, max_distance))
             {
-                collided = true;
+                WIN = true;
                 Debug.Log("Collision detected");
             }
             else
