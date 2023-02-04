@@ -7,7 +7,6 @@ public class Ellipse : MonoBehaviour
 {
     public float xAxis;
     public float yAxis;
-    
 
     public Ellipse(float xAxis, float yAxis)
     {
