@@ -49,6 +49,9 @@
         },
         {
             "m_Id": "8802da04a5334cf5861bfc46fce4a299"
+        },
+        {
+            "m_Id": "8f32f9df6f1641a9bcaf4128a130e5ae"
         }
     ],
     "m_GroupDatas": [],
@@ -155,6 +158,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "8f32f9df6f1641a9bcaf4128a130e5ae"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "03e06e8963ae4a4ea3e711d4243d6b00"
+                },
+                "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "a069e1a31d18414c8193b5639d7f6cb8"
                 },
                 "m_SlotId": 2
@@ -227,6 +244,31 @@
             "m_Id": "fa00403cb39840f4889f0304f1e0f867"
         }
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
+    "m_ObjectId": "0148e4ff53de4b1c883d26c2843d8ba9",
+    "m_Id": 0,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
 }
 
 {
@@ -1001,10 +1043,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -13.599991798400879,
-            "y": -228.0,
-            "width": 208.0,
-            "height": 126.39999389648438
+            "x": -431.99993896484377,
+            "y": 12.00002384185791,
+            "width": 207.99998474121095,
+            "height": 126.39997100830078
         }
     },
     "m_Slots": [
@@ -1078,6 +1120,49 @@
     },
     "m_Labels": [],
     "m_Space": 0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.ColorNode",
+    "m_ObjectId": "8f32f9df6f1641a9bcaf4128a130e5ae",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Color",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -791.2000122070313,
+            "y": 77.5999984741211,
+            "width": 208.0,
+            "height": 126.39998626708985
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "0148e4ff53de4b1c883d26c2843d8ba9"
+        }
+    ],
+    "synonyms": [
+        "rgba"
+    ],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Color": {
+        "color": {
+            "r": 0.0,
+            "g": 0.501960813999176,
+            "b": 5.992156982421875,
+            "a": 0.0
+        },
+        "mode": 1
+    }
 }
 
 {
@@ -1176,9 +1261,9 @@
             "a": 1.0
         },
         "key1": {
-            "r": 0.022844314575195314,
+            "r": 0.0,
             "g": 0.0,
-            "b": 1.0,
+            "b": 0.0,
             "a": 1.0
         },
         "key2": {
@@ -1370,10 +1455,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -693.5999755859375,
-            "y": 197.60000610351563,
-            "width": 207.99996948242188,
-            "height": 125.60003662109375
+            "x": -791.2000122070313,
+            "y": 204.00001525878907,
+            "width": 208.0,
+            "height": 126.39997863769531
         }
     },
     "m_Slots": [
@@ -1392,9 +1477,9 @@
     },
     "m_Color": {
         "color": {
-            "r": 0.0,
-            "g": 15.626897811889649,
-            "b": 57.037899017333987,
+            "r": 766.99609375,
+            "g": 461.8039245605469,
+            "b": 0.0,
             "a": 0.0
         },
         "mode": 1
@@ -1537,9 +1622,9 @@
             "a": 1.0
         },
         "key2": {
-            "r": 1.0,
-            "g": 1.0,
-            "b": 1.0,
+            "r": 0.0,
+            "g": 0.0,
+            "b": 0.0,
             "a": 0.0
         },
         "key3": {
@@ -1572,9 +1657,9 @@
             "b": 0.0,
             "a": 0.0
         },
-        "ctime0": 38550,
+        "ctime0": 32768,
         "ctime1": 65535,
-        "ctime2": 65535,
+        "ctime2": 0,
         "ctime3": 0,
         "ctime4": 0,
         "ctime5": 0,

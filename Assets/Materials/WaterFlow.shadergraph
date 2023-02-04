@@ -612,8 +612,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1746.4000244140625,
-            "y": -85.60000610351563,
+            "x": -1746.39990234375,
+            "y": -85.59998321533203,
             "width": 208.0,
             "height": 312.79998779296877
         }
@@ -632,7 +632,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
@@ -1261,7 +1261,7 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "X",
     "m_StageCapability": 3,
-    "m_Value": 10.0,
+    "m_Value": 20.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
 }
@@ -1439,7 +1439,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "e00": 2.0,
+        "e00": -2.0,
         "e01": 2.0,
         "e02": 2.0,
         "e03": 2.0,
