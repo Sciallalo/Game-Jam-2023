@@ -12,7 +12,7 @@ public class TextureAnimation : MonoBehaviour
     public int count = 0;
     public bool stop;
 
-    private static readonly int Texture2D1 = Shader.PropertyToID("_Texture2D");
+    private static readonly int Texture2D1 = Shader.PropertyToID("Texture2D_352dbb00603d4b21865ced61aa4f7344");
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +37,13 @@ public class TextureAnimation : MonoBehaviour
         
         count++;
         stop = true;
+
         StartCoroutine(Animate());
     }
 
     public IEnumerator Animate()
     {
-        yield return new WaitForSeconds(1/24f);
+        yield return new WaitForSeconds(1/48f);
         stop = false;
     }
 }
