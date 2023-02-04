@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Robot : MonoBehaviour
 {
     public CreaCodice cc;
+    public Text text;
     public string code;
     private int ind = 0;
     private int count = 0;
@@ -12,7 +15,7 @@ public class Robot : MonoBehaviour
     private void Start()
     {
         code = cc.GetCodice();
-        Debug.Log(code);
+        text.text = code.ToUpper();
     }
 
     char GetKeyPressed()
@@ -42,7 +45,7 @@ public class Robot : MonoBehaviour
     {
         if(count == 3)
         {
-            Debug.Log("Vinto");
+            SceneManager.LoadScene(0);
         }
         else
         {
@@ -63,7 +66,7 @@ public class Robot : MonoBehaviour
                         if(count < 3)
                         {
                             code = cc.GetCodice();
-                            Debug.Log(code);
+                            text.text = code.ToUpper();
                             ind = 0;
                         }
                     }

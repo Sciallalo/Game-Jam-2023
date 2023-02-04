@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LanciaNeutrini : MonoBehaviour
 {
@@ -34,12 +35,12 @@ public class LanciaNeutrini : MonoBehaviour
         tmpTime += Time.deltaTime;
 
         if (!CheckState()){
-            Debug.Log("Perso");
+            SceneManager.LoadScene(0);
         }
 
         if(currentTime >= maxTime)
         {
-            Debug.Log("Vinto");
+            SceneManager.LoadScene(1);
         }
 
         if(tmpTime >= 1.5f)

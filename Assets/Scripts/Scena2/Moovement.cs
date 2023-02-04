@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Moovement : MonoBehaviour
 {
@@ -56,12 +57,14 @@ public class Moovement : MonoBehaviour
             gameObject.transform.position += Vector3.MoveTowards(gameObject.transform.GetChild(0).position, center.position, approachingVelocity * Time.deltaTime) - gameObject.transform.GetChild(0).position;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (compute_offsetZ(left_top, rightTop, max_distance))
             {
                 WIN = true;
                 Debug.Log("Collision detected");
+                StartCoroutine(WaitWin());
+                
             }
             else
             {
@@ -78,5 +81,11 @@ public class Moovement : MonoBehaviour
 
         return offset < max_offset;
             
+    }
+
+    IEnumerator WaitWin()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

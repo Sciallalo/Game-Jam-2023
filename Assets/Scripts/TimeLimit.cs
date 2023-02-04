@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeLimit : MonoBehaviour
 {
@@ -20,7 +21,8 @@ public class TimeLimit : MonoBehaviour
         if(currentTime <= 0)
         {
             runningTimer = false;
-            Debug.Log("Perso");
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }
