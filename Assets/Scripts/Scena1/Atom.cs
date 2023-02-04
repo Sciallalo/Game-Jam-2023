@@ -6,7 +6,6 @@ public class Atom : MonoBehaviour
 {
     public Transform orbitingObject;
     public Ellipse orbitPath;
-    public Camera camera;
 
     [Range(0f,1f)]
     public float orbitProgress = 0.25f;
@@ -15,10 +14,6 @@ public class Atom : MonoBehaviour
     float orbitSpeed;
     float pressedValue = 0f;
     float addValue = 0.00001f;
-    float winValue = 0.06f;
-
-    float initCamera = 3.6f;
-    float finishCamera = 12f;
 
     private void Start()
     {
@@ -28,18 +23,21 @@ public class Atom : MonoBehaviour
     void SetOrbitingObjectPosition()
     {
         Vector2 orbitPos = orbitPath.Evaluate(orbitProgress);
-        orbitingObject.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
+        if(orbitingObject != null)
+        {
+            orbitingObject.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
+        }
     }
 
     void inputRead()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            pressedValue += addValue;
+            pressedValue += addValue * 2;
         }
-        else if (Input.GetMouseButton(1))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            pressedValue += -addValue;
+            pressedValue += -addValue *2;
         }
         else
         {
@@ -47,26 +45,19 @@ public class Atom : MonoBehaviour
             {
                 if(pressedValue > 0)
                 {
-                    pressedValue -= addValue * 5;
+                    pressedValue -= addValue;
                 }
                 else
                 {
-                    pressedValue += addValue * 5;
+                    pressedValue += addValue;
                 }
             }
         }
     }
 
-    void controlCamera()
-    {
-        float inter = pressedValue / winValue;
-        camera.orthographicSize = finishCamera * inter + (1 - inter) * initCamera;
-    }
-
     private void Update()
     {
         inputRead();
-        controlCamera();
 
         if(orbitPeriod < 0.1f)
         {
@@ -79,10 +70,5 @@ public class Atom : MonoBehaviour
         orbitProgress %= 1f;
 
         SetOrbitingObjectPosition();
-
-        if(pressedValue >= winValue || pressedValue <= -winValue)
-        {
-            Debug.Log("Vinto");
-        }
     }
 }

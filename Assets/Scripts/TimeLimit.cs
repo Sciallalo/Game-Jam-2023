@@ -17,7 +17,6 @@ public class TimeLimit : MonoBehaviour
     void Update()
     {
         currentTime -= Time.deltaTime;
-        Debug.Log(currentTime);
         if(currentTime <= 0)
         {
             runningTimer = false;
