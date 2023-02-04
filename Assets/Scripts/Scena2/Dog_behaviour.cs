@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Formats.Alembic.Importer;
 
 public class Dog_behaviour : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Dog_behaviour : MonoBehaviour
     [SerializeField] GameObject splash;
     [SerializeField] GameObject water;
     [SerializeField] float increment =0.01f;
-    [SerializeField] float time = 1.8f;
+    [SerializeField] float time = 1.958333f;
+    [SerializeField] AlembicStreamPlayer pianta;
     private float current_x;
     private float target;
 
@@ -64,5 +66,7 @@ public class Dog_behaviour : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         percentage += increment * Time.deltaTime;
+        pianta.UpdateImmediately(percentage);
+        
     }
 }
