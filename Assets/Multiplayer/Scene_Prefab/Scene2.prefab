@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134367719985511996}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.3313334, y: 0.26000017, z: 0.5680903}
+  m_LocalPosition: {x: 0, y: 0.26000017, z: 0}
   m_LocalScale: {x: 0.33333325, y: 0.33333322, z: 0.33333328}
   m_Children: []
   m_Father: {fileID: 1563416049212964999}
@@ -357,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &515712977877062973
 Transform:
   m_ObjectHideFlags: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1146,6 +1146,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightHand
       objectReference: {fileID: 0}
+    - target: {fileID: -2101495132179269049, guid: 11bb48e236427f343b9d4aa02953dc23, type: 3}
+      propertyPath: m_TagString
+      value: Hand
+      objectReference: {fileID: 0}
     - target: {fileID: -1315871409385575272, guid: 11bb48e236427f343b9d4aa02953dc23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.04
@@ -1157,6 +1161,10 @@ PrefabInstance:
     - target: {fileID: 7328737600748097115, guid: 11bb48e236427f343b9d4aa02953dc23, type: 3}
       propertyPath: m_Name
       value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 7328737600748097115, guid: 11bb48e236427f343b9d4aa02953dc23, type: 3}
+      propertyPath: m_TagString
+      value: Hand
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11bb48e236427f343b9d4aa02953dc23, type: 3}
@@ -1212,8 +1220,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 22, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Size: {x: 3.9090774, y: 0.72678703, z: 0.77277213}
+  m_Center: {x: 0.478695, y: 0.0852801, z: -0.4723503}
 --- !u!114 &5029115845223399363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1232,8 +1240,8 @@ MonoBehaviour:
   center: {fileID: 515712979052346419}
   approachingVelocity: 3
   max_distance: 0.6
-  canvas: {fileID: 0}
-  video: {fileID: 0}
+  canvas: {fileID: 515712978316369488}
+  video: {fileID: 515712978945248634}
 --- !u!65 &8084475756058305836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1245,8 +1253,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 22, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Size: {x: 1.319645, y: 0.5644794, z: 0.7727721}
+  m_Center: {x: 0.76947343, y: 0.12835172, z: -0.47235027}
 --- !u!114 &9041369825848994449
 MonoBehaviour:
   m_ObjectHideFlags: 0
