@@ -226,6 +226,14 @@ PrefabInstance:
       value: Scene3
       objectReference: {fileID: 0}
     - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: MAX_x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: MIN_x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
       propertyPath: video
       value: 
       objectReference: {fileID: 281521267}
