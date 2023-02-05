@@ -52,8 +52,8 @@ public class LanciaNeutrini : MonoBehaviour
         if(tmpTime >= Random.Range(.5f, 2f))
         {
             Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
-            Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
-
+            var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
+            tmp.GetComponent<Neutrino>().enabled = true;
             tmpTime = 0;
         }
     }

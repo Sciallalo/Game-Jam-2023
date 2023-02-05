@@ -21,7 +21,7 @@ public class Dog_behaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target= Random.RandomRange(MIN_x, MAX_x);
+        target= Random.Range(MIN_x, MAX_x);
     }
 
     // Update is called once per frame
@@ -43,7 +43,7 @@ public class Dog_behaviour : MonoBehaviour
                 transform.position += new Vector3(movement_x, 0, 0) * Time.deltaTime;
             }
         }
-        else { target = Random.RandomRange(MIN_x, MAX_x); }
+        else { target = Random.Range(MIN_x, MAX_x); }
 
         if (percentage >= time)
         {

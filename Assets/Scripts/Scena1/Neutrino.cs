@@ -5,18 +5,22 @@ using UnityEngine;
 public class Neutrino : MonoBehaviour
 {
     private GameObject target;
+    public AudioSource explosion;
+    public AudioSource absorb;
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.collider.tag == "Elettrone")
         {
+            explosion.Play();
             Destroy(collision.collider.gameObject);
             Destroy(gameObject);
         }
 
         if (collision.collider.tag == "Nucleo")
         {
-            Destroy(gameObject);
+            absorb.Play();
+            Destroy(gameObject);   
         }
     }
 
