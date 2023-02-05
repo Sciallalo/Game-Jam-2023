@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Formats.Alembic.Importer;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class Dog_behaviour : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class Dog_behaviour : MonoBehaviour
     [SerializeField] float increment =0.01f;
     [SerializeField] float time = 1.958333f;
     [SerializeField] AlembicStreamPlayer pianta;
+
+    public Canvas canvas;
+    public VideoPlayer video;
+
     private float current_x;
     private float target;
 
@@ -46,6 +52,7 @@ public class Dog_behaviour : MonoBehaviour
         if (percentage >= time)
         {
             Debug.Log("you win");
+            StartCoroutine(WaitWin());
         }
 
     }
@@ -66,5 +73,13 @@ public class Dog_behaviour : MonoBehaviour
         percentage += increment * Time.deltaTime;
         pianta.UpdateImmediately(percentage);
         
+    }
+
+    IEnumerator WaitWin()
+    {
+        canvas.gameObject.SetActive(true);
+        video.Play();
+        yield return new WaitForSeconds(4.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

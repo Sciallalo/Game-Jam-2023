@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!328 &281521267 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+  m_PrefabInstance: {fileID: 55198283239390693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1668315316 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 55198283259038835, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+  m_PrefabInstance: {fileID: 55198283239390693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &55198283239390693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +140,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 9f6da1586aeb4ad47acac58be796d1a4, type: 3}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55198282419409665, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 55198283451967040, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -178,6 +220,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scene3
       objectReference: {fileID: 0}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: video
+      value: 
+      objectReference: {fileID: 281521267}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1668315316}
     - target: {fileID: 5207564788642901062, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
       propertyPath: m_Mesh
       value: 
