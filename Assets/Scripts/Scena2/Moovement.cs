@@ -73,7 +73,7 @@ public class Moovement : MonoBehaviour
             
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKey(KeyCode.RightControl))
         {
             if (compute_offsetZ(left_top, rightTop, max_distance))
             {

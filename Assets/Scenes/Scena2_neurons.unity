@@ -520,6 +520,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 515712977602800197, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 515712977877062974, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -572,6 +576,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2890567825509325216, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2932523253578965613, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -579,6 +587,10 @@ PrefabInstance:
     - target: {fileID: 2932523253578965613, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529062803331527445, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4793455962694494494, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -604,6 +616,10 @@ PrefabInstance:
       propertyPath: approachingVelocity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5983174079858648569, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6038504383933846620, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.138
@@ -616,6 +632,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.536
       objectReference: {fileID: 0}
+    - target: {fileID: 7586587518596151962, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: bfdf15a524669e946aeb2a8dc780d51e, type: 2}
     - target: {fileID: 7697137485824949063, guid: 0b85fe8860eeb4849afdcdc493bc156a, type: 3}
       propertyPath: m_Name
       value: Scene2
