@@ -27,8 +27,6 @@ public class Dog_behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         current_x = transform.position.x;
 
         if ((int) current_x != (int) target)

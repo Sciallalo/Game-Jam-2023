@@ -11,11 +11,18 @@ public class Robot : MonoBehaviour
     public string code;
     private int ind = 0;
     private int count = 0;
-
+    public GameObject scatola_aperta;
+    public GameObject scatola_chiusa;
+    private GameObject tmp_aperta;
+    private GameObject tmp_chiusa;
+    private bool creato = false;
+    private char letter = ' ';
+    private char pressed = ' ';
     private void Start()
     {
         code = cc.GetCodice();
         text.text = code.ToUpper();
+        tmp_aperta = Instantiate(scatola_aperta, new Vector3(0, 0, 0), Quaternion.identity);
     }
 
     char GetKeyPressed()
@@ -43,31 +50,58 @@ public class Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(count == 3)
+        if (count == 3)
         {
             SceneManager.LoadScene(0);
         }
         else
         {
-            char letter = code[ind];
-
-            char pressed = GetKeyPressed();
+            if(ind < 4)
+            {
+                letter = code[ind];
+                pressed = GetKeyPressed();
+            }
 
             if(pressed != ' ')
             {
-                if(letter == pressed)
+                if(letter == pressed || creato)
                 {
-                    ind++;
+                    if(!creato)
+                        ind++;
                     
                     if(ind == 4)
                     {
-                        count++;
+                        if (!creato)
+                            count++;
 
                         if(count < 3)
                         {
-                            code = cc.GetCodice();
-                            text.text = code.ToUpper();
-                            ind = 0;
+                            
+                            if (!creato)
+                            {
+                                Destroy(tmp_aperta);
+                                tmp_chiusa = Instantiate(scatola_chiusa, new Vector3(0, 0, 0), Quaternion.identity);
+                                tmp_aperta = Instantiate(scatola_aperta, new Vector3(-5.5f, 0, 0), Quaternion.identity);
+                                text.text = "";
+                                creato = true;
+                            }
+                            else
+                            {
+                                if(tmp_aperta.transform.position.x <= 0f)
+                                {
+                                    tmp_chiusa.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+                                    tmp_aperta.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+                                }
+                                else
+                                {
+                                    Destroy(tmp_chiusa);
+                                    code = cc.GetCodice();
+                                    text.text = code.ToUpper();
+                                    ind = 0;
+                                    creato = false;
+                                }
+                            }
+                            
                         }
                     }
                 }
