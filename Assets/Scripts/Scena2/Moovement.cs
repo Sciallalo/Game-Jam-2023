@@ -15,11 +15,21 @@ public class Moovement : MonoBehaviour
     [SerializeField] float max_distance = 0.6f;
     public Canvas canvas;
     public VideoPlayer video;
+    [SerializeField] VideoClip videoclip;
 
     bool WIN = false;
     float seed;
 
     Transform left_top, rightTop;
+
+    [SerializeField] bool Player2;
+    [SerializeField] GameObject alieno;
+
+    [SerializeField] GameObject NextScene;
+    [SerializeField] GameObject CurrentScene;
+    [SerializeField] Multiplayer_Manager multiplayer;
+    [SerializeField] Camera nextCamera;
+    [SerializeField] TimeLimit tl;
     //bool done = false;
     //[SerializeField] bool collided = false;
 
@@ -42,6 +52,7 @@ public class Moovement : MonoBehaviour
         seed = UnityEngine.Random.Range(0, 100);
         moovement_velocity = UnityEngine.Random.Range(3f, 5f);
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, UnityEngine.Random.Range(-range_z, range_z));
+
     }
 
     // Update is called once per frame
@@ -60,7 +71,7 @@ public class Moovement : MonoBehaviour
             gameObject.transform.position += Vector3.MoveTowards(gameObject.transform.GetChild(0).position, center.position, approachingVelocity * Time.deltaTime) - gameObject.transform.GetChild(0).position;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (!Player2 && Input.GetKey(KeyCode.W))
         {
             if (compute_offsetZ(left_top, rightTop, max_distance))
             {
@@ -68,6 +79,21 @@ public class Moovement : MonoBehaviour
                 Debug.Log("Collision detected");
                 StartCoroutine(WaitWin());
                 
+            }
+            else
+            {
+                Debug.Log("Collision NOT detected");
+            }
+        }
+
+        if (Player2 && Input.GetKey(KeyCode.UpArrow))
+        {
+            if (compute_offsetZ(left_top, rightTop, max_distance))
+            {
+                WIN = true;
+                Debug.Log("Collision detected");
+                StartCoroutine(WaitWin());
+
             }
             else
             {
@@ -88,15 +114,27 @@ public class Moovement : MonoBehaviour
 
     IEnumerator WaitWin()
     {
+        tl.win = true;
         yield return new WaitForSeconds(3);
-        if(canvas != null)
-        {
-            canvas.gameObject.SetActive(true);
-            video.Play();
-            yield return new WaitForSeconds(2);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        
-        
+        video.clip = videoclip;
+        video.Play();
+       // alieno.SetActive(false);
+        yield return new WaitForSeconds(3);
+
+        CurrentScene.SetActive(false);
+        NextScene.SetActive(true);
+        if (Player2) { multiplayer.Change_cam2(nextCamera); }
+        else { multiplayer.Change_cam1(nextCamera); }
+        // video.enabled = true;
+        /*
+         if (canvas != null)
+         {
+             //canvas.gameObject.SetActive(true);
+             //video.Play();
+             yield return new WaitForSeconds(2);
+             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+         }
+         */
+
     }
 }

@@ -15,6 +15,8 @@ public class Atom : MonoBehaviour
     float pressedValue = 0f;
     float addValue = 0.00001f;
 
+    [SerializeField] bool Player2;
+
     private void Start()
     {
         SetOrbitingObjectPosition();
@@ -31,25 +33,53 @@ public class Atom : MonoBehaviour
 
     void inputRead()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Player2)
         {
-            pressedValue += addValue * 2;
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            pressedValue += -addValue *2;
-        }
-        else
-        {
-            if(pressedValue != 0)
+            if (Input.GetKey(KeyCode.LeftArrow))
             {
-                if(pressedValue > 0)
+                pressedValue += addValue * 2;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                pressedValue += -addValue * 2;
+            }
+            else
+            {
+                if (pressedValue != 0)
                 {
-                    pressedValue -= addValue;
+                    if (pressedValue > 0)
+                    {
+                        pressedValue -= addValue;
+                    }
+                    else
+                    {
+                        pressedValue += addValue;
+                    }
                 }
-                else
+            }
+        }
+
+        else {
+            if (Input.GetKey(KeyCode.A))
+            {
+                pressedValue += addValue * 2;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                pressedValue += -addValue * 2;
+            }
+            else
+            {
+                if (pressedValue != 0)
                 {
-                    pressedValue += addValue;
+                    if (pressedValue > 0)
+                    {
+                        pressedValue -= addValue;
+                    }
+                    else
+                    {
+                        pressedValue += addValue;
+                    }
                 }
             }
         }

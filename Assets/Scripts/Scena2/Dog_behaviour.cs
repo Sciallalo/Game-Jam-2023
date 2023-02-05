@@ -18,6 +18,8 @@ public class Dog_behaviour : MonoBehaviour
 
     public float percentage = 0;
 
+    [SerializeField] End_game end;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +50,7 @@ public class Dog_behaviour : MonoBehaviour
         if (percentage >= time)
         {
             Debug.Log("you win");
+            end.win();
         }
 
     }

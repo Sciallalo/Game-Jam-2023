@@ -11,9 +11,26 @@ public class TimeLimit : MonoBehaviour
     public VideoPlayer video;
     public float seconds;
     private float currentTime;
+
+    [SerializeField] GameObject[] list_disabling;
+    [SerializeField] VideoClip videoclip;
+
+    [SerializeField] GameObject NextScene;
+    [SerializeField] GameObject CurrentScene;
+    [SerializeField] Multiplayer_Manager multiplayer;
+    [SerializeField] bool Player2;
+    [SerializeField] Camera nextCamera;
+
+    public bool win = false;
     void Start()
     {
         currentTime = maxTime;
+        win = false;
+    }
+
+    private void OnEnable()
+    {
+        win = false;
     }
 
     // Update is called once per frame
@@ -26,11 +43,25 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+    public void starting()
+    {
+        currentTime = 0;
+    }
+
     IEnumerator GoBack()
     {
-        canvas.gameObject.SetActive(true);
-        video.Play();
-        yield return new WaitForSeconds(seconds);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        if (!win)
+        {
+            //canvas.gameObject.SetActive(true);
+            video.clip = videoclip;
+            for (int i = 0; i < list_disabling.Length; i++) { list_disabling[i].SetActive(false); }
+            video.Play();
+            yield return new WaitForSeconds(seconds);
+            CurrentScene.SetActive(false);
+            NextScene.SetActive(true);
+            if (Player2) { multiplayer.Change_cam2(nextCamera); }
+            else { multiplayer.Change_cam1(nextCamera); }
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 }

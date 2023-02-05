@@ -9,6 +9,7 @@ public class Character_movement : MonoBehaviour
     [SerializeField] float MIN_x = 0.2f;
 
     private float current_x;
+    [SerializeField] bool Player2;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +21,29 @@ public class Character_movement : MonoBehaviour
     {
         current_x = transform.position.x;
 
-
-        if (Input.GetKey(KeyCode.LeftArrow) && current_x>MIN_x)
+        if (Player2)
         {
-            transform.position += new Vector3(-movement_x, 0, 0) * Time.deltaTime;
+            if (Input.GetKey(KeyCode.LeftArrow) && current_x > MIN_x)
+            {
+                transform.position += new Vector3(-movement_x, 0, 0) * Time.deltaTime;
+            }
+            else if (Input.GetKey(KeyCode.RightArrow) && current_x < MAX_x)
+            {
+                transform.position += new Vector3(movement_x, 0, 0) * Time.deltaTime;
+            }
         }
-        else if (Input.GetKey(KeyCode.RightArrow) && current_x<MAX_x)
+
+        else
         {
-            transform.position += new Vector3(movement_x, 0, 0) * Time.deltaTime;
+            if (Input.GetKey(KeyCode.A) && current_x > MIN_x)
+            {
+                transform.position += new Vector3(-movement_x, 0, 0) * Time.deltaTime;
+            }
+            else if (Input.GetKey(KeyCode.D) && current_x < MAX_x)
+            {
+                transform.position += new Vector3(movement_x, 0, 0) * Time.deltaTime;
+            }
+
         }
 
        

@@ -10,7 +10,8 @@ public class Neutrino : MonoBehaviour
     {
         if(collision.collider.tag == "Elettrone")
         {
-            Destroy(collision.collider.gameObject);
+            //Destroy(collision.collider.gameObject);
+            collision.collider.gameObject.SetActive(false);
             Destroy(gameObject);
         }
 
@@ -23,10 +24,18 @@ public class Neutrino : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectsWithTag("Nucleo")[0];
+        StartCoroutine(kill_neutrino());
     }
 
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.03f);
+    }
+
+    IEnumerator kill_neutrino()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
+
     }
 }
