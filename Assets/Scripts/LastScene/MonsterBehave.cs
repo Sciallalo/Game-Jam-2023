@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityChan;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class MonsterBehave : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class MonsterBehave : MonoBehaviour
 
     public GameObject controller;
     public SpringManager springManager;
+    public Canvas canvas;
+    public VideoPlayer video;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +36,12 @@ public class MonsterBehave : MonoBehaviour
             springManager.stiffnessForce *= decreaseScaleStepPercentage;
 
             galaxyManager.decreaseGalaxyCounter(collision.gameObject);
+
+            eatGalaxies++;
+            Debug.Log(eatGalaxies);
+
+            
+            
         }
 
         else if(collision.collider.tag == "Boundaries")
@@ -51,9 +61,24 @@ public class MonsterBehave : MonoBehaviour
             springManager.stiffnessForce *= increaseScaleStepPercentage;
 
             // Apply a malus on the galaxy counter
-            if (eatGalaxies >= galaxyMalus) { eatGalaxies -= galaxyMalus; }
-            else { eatGalaxies = 0; }
+            //if (eatGalaxies >= galaxyMalus) { eatGalaxies -= galaxyMalus; }
+            //else { eatGalaxies = 0; }
 
         }
+    }
+
+    private void Update()
+    {
+        if (eatGalaxies >= 4)
+        {
+            StartCoroutine(WaitVideo());
+        }
+    }
+    IEnumerator WaitVideo()
+    {
+        canvas.gameObject.SetActive(true);
+        video.Play();
+        yield return new WaitForSeconds(3.333f);
+        SceneManager.LoadScene(0);
     }
 }
