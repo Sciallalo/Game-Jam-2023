@@ -96,7 +96,5 @@ public class Moovement : MonoBehaviour
             yield return new WaitForSeconds(2);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        
-        
     }
 }
