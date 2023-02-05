@@ -8,7 +8,6 @@ using UnityEngine.Video;
 public class Robot : MonoBehaviour
 {
     public CreaCodice cc;
-    public Text text;
     public string code;
     private int ind = 0;
     private int count = 0;
@@ -111,6 +110,11 @@ public class Robot : MonoBehaviour
 
             if(pressed != ' ')
             {
+                if(letter != pressed)
+                {
+                    StartCoroutine(GoBack());
+                }
+
                 if(letter == pressed || creato)
                 {
                     if (!creato)
@@ -159,6 +163,14 @@ public class Robot : MonoBehaviour
             
         }
         
+    }
+
+    IEnumerator GoBack()
+    {
+        canvas.gameObject.SetActive(true);
+        video.Play();
+        yield return new WaitForSeconds(4.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     IEnumerator WaitVideo()
