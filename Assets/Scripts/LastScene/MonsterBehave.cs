@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,8 @@ public class MonsterBehave : MonoBehaviour
     [SerializeField] GalaxyManager galaxyManager;
     [SerializeField] float increaseScaleStepPercentage;
     [SerializeField] float decreaseScaleStepPercentage;
+
+    public float scale;
     
     [SerializeField] int galaxyMalus;
     int eatGalaxies;
@@ -19,6 +22,13 @@ public class MonsterBehave : MonoBehaviour
     public SpringManager springManager;
     public Canvas canvas;
     public VideoPlayer video;
+
+    public Material shaders1;
+    public Material shaders2;
+    public Material shaders3;
+    private static readonly int Vector1Aaaef0d118A44A8da5Ebc3Ee7Ce1877E = Shader.PropertyToID("Vector1_aaaef0d118a44a8da5ebc3ee7ce1877e");
+    private static readonly int Vector18Fc588776A484C988d78Bb1A70A10749 = Shader.PropertyToID("Vector1_8fc588776a484c988d78bb1a70a10749");
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +41,12 @@ public class MonsterBehave : MonoBehaviour
         if(collision.collider.tag == "Galaxy")
         {
             Debug.Log("Galaxy Collision");
-            transform.localScale *= increaseScaleStepPercentage;
+            //transform.localScale *= increaseScaleStepPercentage;
+            
+            scale += increaseScaleStepPercentage;
+            SetScaleShaders(scale);
+            
             controller.transform.localScale *= increaseScaleStepPercentage;
-            springManager.stiffnessForce *= decreaseScaleStepPercentage;
 
             galaxyManager.decreaseGalaxyCounter(collision.gameObject);
 
@@ -56,9 +69,12 @@ public class MonsterBehave : MonoBehaviour
             }
 
             // Reduce scale of the monster
-            transform.localScale *= decreaseScaleStepPercentage;
+            //transform.localScale *= decreaseScaleStepPercentage;
+
+            scale -= decreaseScaleStepPercentage;
+            SetScaleShaders(scale);
+
             controller.transform.localScale *= decreaseScaleStepPercentage;
-            springManager.stiffnessForce *= increaseScaleStepPercentage;
 
             // Apply a malus on the galaxy counter
             //if (eatGalaxies >= galaxyMalus) { eatGalaxies -= galaxyMalus; }
@@ -66,6 +82,7 @@ public class MonsterBehave : MonoBehaviour
 
         }
     }
+<<<<<<< Updated upstream
 
     private void Update()
     {
@@ -80,5 +97,18 @@ public class MonsterBehave : MonoBehaviour
         video.Play();
         yield return new WaitForSeconds(3.333f);
         SceneManager.LoadScene(0);
+=======
+    
+    void SetScaleShaders(float scale1)
+    {
+        shaders1.SetFloat(Vector1Aaaef0d118A44A8da5Ebc3Ee7Ce1877E, scale1/5);
+        shaders1.SetFloat(Vector18Fc588776A484C988d78Bb1A70A10749, scale1/5);
+        shaders1.SetFloat(Vector18Fc588776A484C988d78Bb1A70A10749, scale1/5);
+    }
+
+    private void OnDisable()
+    {
+        SetScaleShaders(0);
+>>>>>>> Stashed changes
     }
 }
