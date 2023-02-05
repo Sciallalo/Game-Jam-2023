@@ -25,16 +25,16 @@ public class MonsterBehave : MonoBehaviour
     {
         float new_velocity = velocity * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.W)){
+        if (Input.GetKey(KeyCode.UpArrow)){
             transform.position += new Vector3(0, 0, new_velocity);
         }
-        if (Input.GetKey(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.DownArrow)) {
             transform.position += new Vector3(0, 0, -new_velocity);
         }
-        if (Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.LeftArrow)) {
             transform.position += new Vector3(-new_velocity, 0, 0);
         }
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.RightArrow)) {
             transform.position += new Vector3(new_velocity, 0, 0);
         }
 
