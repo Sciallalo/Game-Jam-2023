@@ -5,27 +5,44 @@ using UnityEngine;
 
 public class MatchBounds : MonoBehaviour
 {
-    [SerializeField] float start_pos;
-    [SerializeField] float final_pos;
-    [SerializeField] float lerpDuration = 5;
+    [SerializeField] BoundariesDimension boundariesDim;
+    float start_pos;
+    float final_pos;
+
 
     float timeElapsed;
-    [SerializeField] bool horizzontal_moving;
+    float lerpDuration;
 
-    float distance;
-    Bounds bounds;
+    private void Awake()
+    {
+        if (gameObject.name == "LeftB") {
+            start_pos = - boundariesDim.getMinWidth() * 0.5f;
+            final_pos = - boundariesDim.getMaxWidth() * 0.5f;
+            transform.position = new Vector3(start_pos, 0, 0);
+        }
+        else if (gameObject.name == "RightB"){
+            start_pos = boundariesDim.getMinWidth() * 0.5f;
+            final_pos = boundariesDim.getMaxWidth() * 0.5f;
+            transform.position = new Vector3(start_pos, 0, 0);
+        }
+        else if (gameObject.name == "TopB") {
+            start_pos = boundariesDim.getMinHeight() * 0.5f;
+            final_pos = boundariesDim.getMaxHeight() * 0.5f;
+            transform.position = new Vector3(0, 0, start_pos);
+        }
+        else if (gameObject.name == "BottomB") {
+            start_pos = - boundariesDim.getMinHeight() * 0.5f;
+            final_pos = - boundariesDim.getMaxHeight() * 0.5f;
+            transform.position = new Vector3(0, 0, start_pos);
+        }
+       
+        lerpDuration = boundariesDim.getDuration();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (horizzontal_moving)
-        {
-            transform.position = new Vector3(start_pos, 0, 0);
-        }
-        else
-        {
-            transform.position = new Vector3(0, 0, start_pos);
-        }
+        
         timeElapsed = 0;
     }
 
@@ -36,7 +53,7 @@ public class MatchBounds : MonoBehaviour
         {
             float new_pos = Mathf.Lerp(start_pos, final_pos, timeElapsed / lerpDuration);
 
-            if (horizzontal_moving)
+            if (gameObject.name == "LeftB" || gameObject.name == "RightB")
             {
                 transform.position = new Vector3(new_pos, transform.position.y, transform.position.z);
             }
@@ -46,7 +63,7 @@ public class MatchBounds : MonoBehaviour
             }
 
             timeElapsed += Time.deltaTime;
-            Debug.Log(timeElapsed);
+            //Debug.Log(timeElapsed);
         }
     }
 

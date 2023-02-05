@@ -7,14 +7,16 @@ public class CameraMooveAway : MonoBehaviour
 {
     [SerializeField] float initial_size = 10;
     [SerializeField] float final_size = 70;
-    [SerializeField] float lerpDuration = 2;
+    [SerializeField] BoundariesDimension boundariesDim;
+
+    float lerpDuration = 2;
     float timeElapsed;
-    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
         Camera.main.orthographicSize = initial_size;
+        lerpDuration = boundariesDim.getDuration();
         timeElapsed = 0;
     }
 
