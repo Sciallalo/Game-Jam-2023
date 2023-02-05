@@ -33,7 +33,7 @@ public class Neutrino : MonoBehaviour
 
     private void Start()
     {
-        neutrinoVelocity = 20;
+        neutrinoVelocity = 10;
         target = GameObject.FindGameObjectsWithTag("Nucleo")[0];
     }
 

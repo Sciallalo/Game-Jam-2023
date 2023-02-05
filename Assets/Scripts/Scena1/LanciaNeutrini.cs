@@ -17,6 +17,7 @@ public class LanciaNeutrini : MonoBehaviour
     private float currentTime;
     private float tmpTime;
     public bool stop = false;
+    private int counter = 0;
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class LanciaNeutrini : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
 
-            if (currentTime >= maxTime)
+            if (counter >= 5)
             {
                 stop = true;
                 canvas.gameObject.SetActive(true);
@@ -58,6 +59,8 @@ public class LanciaNeutrini : MonoBehaviour
 
             if (tmpTime >= Random.Range(.5f, 2f) && !stop)
             {
+                counter++;
+
                 Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
                 var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
                 tmp.GetComponent<Neutrino>().enabled = true;

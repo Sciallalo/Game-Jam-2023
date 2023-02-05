@@ -24,9 +24,11 @@ public class Robot : MonoBehaviour
     public GameObject cv;
     public GameObject canvas;
     public VideoPlayer video;
+    public VideoPlayer livello_prima;
 
     private void Start()
     {
+        livello_prima.Stop();
         video.Stop();
         pressedButton.Stop();
         code = cc.GetCodice();
@@ -168,7 +170,7 @@ public class Robot : MonoBehaviour
     IEnumerator GoBack()
     {
         canvas.gameObject.SetActive(true);
-        video.Play();
+        livello_prima.Play();
         yield return new WaitForSeconds(4.5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }

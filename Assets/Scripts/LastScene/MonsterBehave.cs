@@ -82,7 +82,6 @@ public class MonsterBehave : MonoBehaviour
 
         }
     }
-<<<<<<< Updated upstream
 
     private void Update()
     {
@@ -97,8 +96,9 @@ public class MonsterBehave : MonoBehaviour
         video.Play();
         yield return new WaitForSeconds(3.333f);
         SceneManager.LoadScene(0);
-=======
-    
+
+    }
+
     void SetScaleShaders(float scale1)
     {
         shaders1.SetFloat(Vector1Aaaef0d118A44A8da5Ebc3Ee7Ce1877E, scale1/5);
@@ -106,9 +106,8 @@ public class MonsterBehave : MonoBehaviour
         shaders1.SetFloat(Vector18Fc588776A484C988d78Bb1A70A10749, scale1/5);
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
         SetScaleShaders(0);
->>>>>>> Stashed changes
     }
 }

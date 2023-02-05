@@ -15,7 +15,8 @@ public class Atom : MonoBehaviour
 
     float orbitSpeed;
     float pressedValue = 0f;
-    float addValue = 0.01f;
+    float addValue = 0.005f;
+    float maxValue = 0.2f;
     float atomVelocity;
 
     private void Start()
@@ -35,11 +36,11 @@ public class Atom : MonoBehaviour
 
     void inputRead()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && pressedValue <= maxValue)
         {
             pressedValue += addValue * atomVelocity * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow) && pressedValue >= -maxValue)
         {
             pressedValue += -addValue * atomVelocity * Time.deltaTime;
         }

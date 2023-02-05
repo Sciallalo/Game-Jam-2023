@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -236,11 +236,15 @@ MonoBehaviour:
   galaxyManager: {fileID: 441028071}
   increaseScaleStepPercentage: 1.2
   decreaseScaleStepPercentage: 0.5
+  scale: 0
   galaxyMalus: 0
   controller: {fileID: 568595261}
   springManager: {fileID: 1345130859}
   canvas: {fileID: 662819080}
   video: {fileID: 1827158808}
+  shaders1: {fileID: 2100000, guid: 364f3ee5f4325154d94cc202ce2e2cac, type: 2}
+  shaders2: {fileID: 2100000, guid: 58fe868835f597d4a81b9def978798f2, type: 2}
+  shaders3: {fileID: 2100000, guid: 117e5702845d4e746b400a63c047b83b, type: 2}
 --- !u!54 &67404610
 Rigidbody:
   m_ObjectHideFlags: 0
