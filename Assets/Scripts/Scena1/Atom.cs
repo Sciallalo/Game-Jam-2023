@@ -13,11 +13,13 @@ public class Atom : MonoBehaviour
 
     float orbitSpeed;
     float pressedValue = 0f;
-    float addValue = 0.00001f;
+    float addValue = 0.01f;
+    float atomVelocity;
 
     private void Start()
     {
         SetOrbitingObjectPosition();
+        atomVelocity = 50;
     }
 
     void SetOrbitingObjectPosition()
@@ -33,11 +35,11 @@ public class Atom : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            pressedValue += addValue * 2 * Time.deltaTime;
+            pressedValue += addValue * atomVelocity * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            pressedValue += -addValue *2 * Time.deltaTime;
+            pressedValue += -addValue * atomVelocity * Time.deltaTime;
         }
         else
         {
@@ -45,11 +47,11 @@ public class Atom : MonoBehaviour
             {
                 if(pressedValue > 0)
                 {
-                    pressedValue -= addValue * Time.deltaTime;
+                    pressedValue -= addValue * (atomVelocity * 2) * Time.deltaTime;
                 }
                 else
                 {
-                    pressedValue += addValue * Time.deltaTime;
+                    pressedValue += addValue * (atomVelocity * 2) * Time.deltaTime;
                 }
             }
         }

@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Neutrino : MonoBehaviour
 {
+    
     private GameObject target;
     public AudioSource explosion;
     public AudioSource absorb;
     public LanciaNeutrini ln;
+
+    float neutrinoVelocity;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -29,11 +33,12 @@ public class Neutrino : MonoBehaviour
 
     private void Start()
     {
+        neutrinoVelocity = 20;
         target = GameObject.FindGameObjectsWithTag("Nucleo")[0];
     }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.03f * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, neutrinoVelocity * Time.deltaTime);
     }
 }
