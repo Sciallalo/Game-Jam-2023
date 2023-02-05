@@ -976,14 +976,34 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 38c7114b1a2b4ef409c657a18d5d83aa, type: 2}
+    - target: {fileID: -516098083770646512, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
       propertyPath: m_Name
       value: robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083501151425157549, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1cafc34fb9bea334e8d0be16698a0e26, type: 2}
+    - target: {fileID: 8273688025888378429, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632055958874330854, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.92
+      objectReference: {fileID: 0}
     - target: {fileID: 8743813690021804245, guid: 31af9dad26189d54ba5aa4385df1c5dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

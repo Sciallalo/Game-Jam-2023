@@ -11,7 +11,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Fiocco
-    second: {fileID: 2100000, guid: 783e5daaff5ed4b4bbbfd11b09ccaa44, type: 2}
+    second: {fileID: 2100000, guid: f45bb2b72b0f8864e8e9e1f68100f733, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pacco
+    second: {fileID: 2100000, guid: 727008b5c2851154aa4c80c0870d1122, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pacco.001
+    second: {fileID: 2100000, guid: 4094b6be189f9d54b9bc72dce0e243b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pacco.002
+    second: {fileID: 2100000, guid: 38c7114b1a2b4ef409c657a18d5d83aa, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
