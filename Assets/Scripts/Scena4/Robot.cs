@@ -21,13 +21,51 @@ public class Robot : MonoBehaviour
 
     public AudioSource pressedButton;
 
+    public GameObject cv;
+
     private void Start()
     {
         pressedButton.Stop();
-
         code = cc.GetCodice();
-        text.text = code.ToUpper();
+
+        CreateVisualCode(code);
+        
         tmp_aperta = Instantiate(scatola_aperta, new Vector3(0, 0, 0), Quaternion.identity);
+    }
+
+    void CreateVisualCode(string code) {
+        
+        for(int i = 0; i < 4; i++)
+        {
+            var tmp = code[i];
+
+            switch (tmp)
+            {
+                case 'd':
+                    cv.transform.GetChild(i + 1).GetChild(0).gameObject.SetActive(true);
+                    break;
+                case 'l':
+                    cv.transform.GetChild(i + 1).GetChild(1).gameObject.SetActive(true);
+                    break;
+                case 'u':
+                    cv.transform.GetChild(i + 1).GetChild(2).gameObject.SetActive(true);
+                    break;
+                case 'r':
+                    cv.transform.GetChild(i + 1).GetChild(3).gameObject.SetActive(true);
+                    break;
+            }
+        }
+    }
+
+    void ClearVisualCode()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                cv.transform.GetChild(i + 1).GetChild(j).gameObject.SetActive(false);
+            }
+        }
     }
 
     char GetKeyPressed()
@@ -90,21 +128,21 @@ public class Robot : MonoBehaviour
                                 Destroy(tmp_aperta);
                                 tmp_chiusa = Instantiate(scatola_chiusa, new Vector3(0, 0, 0), Quaternion.identity);
                                 tmp_aperta = Instantiate(scatola_aperta, new Vector3(-5.5f, 0, 0), Quaternion.identity);
-                                text.text = "";
+                                ClearVisualCode();
                                 creato = true;
                             }
                             else
                             {
                                 if(tmp_aperta.transform.position.x <= 0f)
                                 {
-                                    tmp_chiusa.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
-                                    tmp_aperta.transform.Translate(Vector3.right * Time.deltaTime, Space.World);
+                                    tmp_chiusa.transform.Translate(Vector3.right * Time.deltaTime * 3f, Space.World);
+                                    tmp_aperta.transform.Translate(Vector3.right * Time.deltaTime * 3f, Space.World);
                                 }
                                 else
                                 {
                                     Destroy(tmp_chiusa);
                                     code = cc.GetCodice();
-                                    text.text = code.ToUpper();
+                                    CreateVisualCode(code);
                                     ind = 0;
                                     creato = false;
                                 }
