@@ -34,6 +34,6 @@ public class Neutrino : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.03f);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.03f * Time.deltaTime);
     }
 }

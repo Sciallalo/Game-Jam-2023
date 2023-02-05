@@ -33,11 +33,11 @@ public class Atom : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            pressedValue += addValue * 2;
+            pressedValue += addValue * 2 * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            pressedValue += -addValue *2;
+            pressedValue += -addValue *2 * Time.deltaTime;
         }
         else
         {
@@ -45,11 +45,11 @@ public class Atom : MonoBehaviour
             {
                 if(pressedValue > 0)
                 {
-                    pressedValue -= addValue;
+                    pressedValue -= addValue * Time.deltaTime;
                 }
                 else
                 {
-                    pressedValue += addValue;
+                    pressedValue += addValue * Time.deltaTime;
                 }
             }
         }
