@@ -20,6 +20,8 @@ public class Dog_behaviour : MonoBehaviour
     public VideoPlayer video;
     public GameObject manager;
 
+    public AudioSource waterdrop;
+
     private float current_x;
     private float target;
 
@@ -29,6 +31,7 @@ public class Dog_behaviour : MonoBehaviour
     void Start()
     {
         target= Random.Range(MIN_x, MAX_x);
+        waterdrop.Play();
     }
 
     // Update is called once per frame
@@ -78,6 +81,7 @@ public class Dog_behaviour : MonoBehaviour
 
     IEnumerator WaitWin()
     {
+        waterdrop.Stop();
         manager.SetActive(false);
         canvas.gameObject.SetActive(true);
         video.Play();

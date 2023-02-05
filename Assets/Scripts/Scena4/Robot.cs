@@ -18,8 +18,13 @@ public class Robot : MonoBehaviour
     private bool creato = false;
     private char letter = ' ';
     private char pressed = ' ';
+
+    public AudioSource pressedButton;
+
     private void Start()
     {
+        pressedButton.Stop();
+
         code = cc.GetCodice();
         text.text = code.ToUpper();
         tmp_aperta = Instantiate(scatola_aperta, new Vector3(0, 0, 0), Quaternion.identity);
@@ -66,8 +71,11 @@ public class Robot : MonoBehaviour
             {
                 if(letter == pressed || creato)
                 {
-                    if(!creato)
+                    if (!creato)
+                    {
                         ind++;
+                        pressedButton.Play();
+                    }
                     
                     if(ind == 4)
                     {

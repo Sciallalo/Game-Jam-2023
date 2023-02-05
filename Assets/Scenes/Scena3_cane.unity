@@ -133,6 +133,11 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 55198283259038835, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
   m_PrefabInstance: {fileID: 55198283239390693}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1870032864 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7220859820544861545, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+  m_PrefabInstance: {fileID: 55198283239390693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &55198283239390693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -232,6 +237,10 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 55198283239390694}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: waterdrop
+      value: 
+      objectReference: {fileID: 1870032864}
     - target: {fileID: 5207564788642901062, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
       propertyPath: m_Mesh
       value: 
