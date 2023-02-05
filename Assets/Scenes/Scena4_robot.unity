@@ -4142,6 +4142,8 @@ MonoBehaviour:
   scatola_chiusa: {fileID: 1651316379401909213, guid: 0699319b137bfd4459da65806f4648f6, type: 3}
   pressedButton: {fileID: 1478794259}
   cv: {fileID: 548644206}
+  canvas: {fileID: 1082508278}
+  video: {fileID: 2041683694}
 --- !u!114 &1862082710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4288,7 +4290,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041683692}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 99cb7cb465f6c2a4ab6fb5699f4e55ae, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: fdc35955b66aadc4db0b08d79eda9473, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -4301,12 +4303,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 1
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 00
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 0
   m_SkipOnDrop: 0
   m_Looping: 0
