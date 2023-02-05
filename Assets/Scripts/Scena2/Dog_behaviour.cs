@@ -18,6 +18,7 @@ public class Dog_behaviour : MonoBehaviour
 
     public Canvas canvas;
     public VideoPlayer video;
+    public GameObject manager;
 
     private float current_x;
     private float target;
@@ -77,6 +78,7 @@ public class Dog_behaviour : MonoBehaviour
 
     IEnumerator WaitWin()
     {
+        manager.SetActive(false);
         canvas.gameObject.SetActive(true);
         video.Play();
         yield return new WaitForSeconds(4.5f);

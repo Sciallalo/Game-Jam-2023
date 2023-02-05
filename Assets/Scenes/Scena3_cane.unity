@@ -228,9 +228,18 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1668315316}
+    - target: {fileID: 55198283565783015, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 55198283239390694}
     - target: {fileID: 5207564788642901062, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+--- !u!1 &55198283239390694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 55198283954123247, guid: 441315faf365a2c4f9d55f79f47e39e2, type: 3}
+  m_PrefabInstance: {fileID: 55198283239390693}
+  m_PrefabAsset: {fileID: 0}
