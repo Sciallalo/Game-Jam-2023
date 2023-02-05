@@ -162,7 +162,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143133259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 070134e056bd4c345b75500b9192543c, type: 3}
   m_Name: 
@@ -321,6 +321,37 @@ MonoBehaviour:
   colliders: []
   debug: 1
   threshold: 0.01
+--- !u!1 &237759742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 237759743}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &237759743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237759742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 221.78772, y: 121.18553, z: -46.78337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1946925836}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &289815580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6606431798916392234, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
@@ -353,23 +384,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 237759743}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 221.78772
+      value: -954
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.18553
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -46.78337
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalRotation.w
@@ -377,15 +408,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -453,7 +484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743723126}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 070134e056bd4c345b75500b9192543c, type: 3}
   m_Name: 
@@ -561,7 +592,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075988384}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 070134e056bd4c345b75500b9192543c, type: 3}
   m_Name: 
@@ -727,7 +758,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dragForce: 1
+  dragForce: 0.5
   dragCurve:
     serializedVersion: 2
     m_Curve:
@@ -1019,6 +1050,11 @@ MonoBehaviour:
   colliders: []
   debug: 1
   threshold: 0.01
+--- !u!4 &1946925836 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
+  m_PrefabInstance: {fileID: 617527695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2038702156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1462256977616497775, guid: ab0cca0e2474a564e97ff60ec680dd41, type: 3}
