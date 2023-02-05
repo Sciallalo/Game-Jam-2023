@@ -21,6 +21,9 @@ public class TimeLimit : MonoBehaviour
     [SerializeField] bool Player2;
     [SerializeField] Camera nextCamera;
 
+    [SerializeField] GameObject PreviousScene_new1;
+    [SerializeField] GameObject PreviousScene_new2;
+
     public bool win = false;
     void Start()
     {
@@ -31,6 +34,7 @@ public class TimeLimit : MonoBehaviour
     private void OnEnable()
     {
         win = false;
+        currentTime = maxTime;
     }
 
     // Update is called once per frame
@@ -41,11 +45,18 @@ public class TimeLimit : MonoBehaviour
         {
             StartCoroutine(GoBack());
         }
+
+       
+    }
+
+    public void winner()
+    {
+        if (win) { for (int i = 0; i < list_disabling.Length; i++) { list_disabling[i].SetActive(false); } }
     }
 
     public void starting()
     {
-        currentTime = 0;
+        currentTime = maxTime;
     }
 
     IEnumerator GoBack()
@@ -57,10 +68,29 @@ public class TimeLimit : MonoBehaviour
             for (int i = 0; i < list_disabling.Length; i++) { list_disabling[i].SetActive(false); }
             video.Play();
             yield return new WaitForSeconds(seconds);
+            /*
             CurrentScene.SetActive(false);
             NextScene.SetActive(true);
+            
             if (Player2) { multiplayer.Change_cam2(nextCamera); }
             else { multiplayer.Change_cam1(nextCamera); }
+            */
+
+            GameObject s;
+            if (Player2)
+            {
+                s = Instantiate(PreviousScene_new2, new Vector3(0f, 0f, 0f), Quaternion.identity);
+                //multiplayer.Change_cam2(nextCamera); 
+                s.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0f, 0.5f, 1f);
+            }
+            else
+            {
+                s = Instantiate(PreviousScene_new1, new Vector3(0f, 0f, 0f), Quaternion.identity);
+                //multiplayer.Change_cam1(nextCamera); 
+                s.GetComponentInChildren<Camera>().rect = new Rect(0f, 0f, 0.5f, 1f);
+            }
+
+            Destroy(CurrentScene);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }

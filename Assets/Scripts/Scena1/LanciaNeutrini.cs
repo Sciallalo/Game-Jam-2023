@@ -7,6 +7,7 @@ using UnityEngine.Video;
 public class LanciaNeutrini : MonoBehaviour
 {
     public List<GameObject> elettroni;
+    public List<GameObject> neutrini;
     public GameObject neutrino;
     public Ellipse ellisse;
     public Canvas canvas;
@@ -23,15 +24,26 @@ public class LanciaNeutrini : MonoBehaviour
     [SerializeField] Scene1_Reload scena;
     [SerializeField] VideoClip videoclip;
 
-    [SerializeField] GameObject Nucleo;
-     [SerializeField] GameObject[] Elettroni;
+    public GameObject Nucleo;
+     public GameObject[] Elettroni;
+
+    public  bool finish = false;
+
+    [SerializeField] GameObject NextScene_new1;
+    [SerializeField] GameObject NextScene_new2;
     private void Start()
     {
         currentTime = 0;
         tmpTime = 0;
         video.Stop();
     }
-    
+
+    private void OnEnable()
+    {
+        finish = false;
+        currentTime = 0;
+    }
+
     bool CheckState()
     {
         for(int i = 0; i< elettroni.Count; i++)
@@ -48,22 +60,24 @@ public class LanciaNeutrini : MonoBehaviour
         currentTime += Time.deltaTime;
         tmpTime += Time.deltaTime;
 
-        if (!CheckState()){
+        if (!CheckState() && !finish){
             // SceneManager.LoadScene(0);
             scena.reload();
             currentTime = 0;
 
         }
 
-        if(currentTime >= maxTime && CheckState())
+        if(currentTime >= maxTime && CheckState() && !finish)
         {
             //canvas.gameObject.SetActive(true);
-            video.clip = videoclip;
+            finish = true;
             Nucleo.SetActive(false);
             for (int i = 0; i < Elettroni.Length; i++)
             {
                 Elettroni[i].SetActive(false);
             }
+            neutrini.ForEach(Destroy);
+            video.clip = videoclip;
             video.Play();
             StartCoroutine(WaitVideo());
         }
@@ -74,8 +88,9 @@ public class LanciaNeutrini : MonoBehaviour
 
             if (!Player2)
             { neutrino.layer = 6; Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity).transform.parent=this.transform; }
-            else { neutrino.layer = 7; Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y + 332.8f), Quaternion.identity).transform.parent = this.transform; ; }
+            else { neutrino.layer = 7; Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y ), Quaternion.identity).transform.parent = this.transform; ; }
 
+            neutrini.Add(neutrino);
             tmpTime = 0;
         }
     }
@@ -84,11 +99,26 @@ public class LanciaNeutrini : MonoBehaviour
     {
        
         yield return new WaitForSeconds(4.176f);
+        video.Stop();
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         CurrentScene.SetActive(false);
-        NextScene.SetActive(true);
-        if (Player2) { multiplayer.Change_cam2(nextCamera); }
-        else { multiplayer.Change_cam1(nextCamera); }
+        // NextScene.SetActive(true);
+        GameObject s;
+        if (Player2) { s=Instantiate(NextScene_new2, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            //multiplayer.Change_cam2(nextCamera); 
+            s.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0f, 0.5f, 1f);
+        }
+        else { s=Instantiate(NextScene_new1, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            //multiplayer.Change_cam1(nextCamera); 
+            s.GetComponentInChildren<Camera>().rect = new Rect(0f, 0f, 0.5f, 1f);
+        }
+
+        Destroy(CurrentScene);
+       // scene1_1.GetComponentInChildren<Camera>().rect = new Rect(0f, 0f, 0.5f, 1f);
+      //  s.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0f, 0.5f, 1f);
+
+
+
 
     }
 }

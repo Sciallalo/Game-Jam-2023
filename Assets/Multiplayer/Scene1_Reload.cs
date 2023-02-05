@@ -22,6 +22,8 @@ public class Scene1_Reload : MonoBehaviour
         
     }
 
+    
+
     private void OnEnable()
     {
         Nucleo.SetActive(true);
@@ -39,4 +41,6 @@ public class Scene1_Reload : MonoBehaviour
             Elettroni[i].SetActive(true);
         }
     }
+
+    
 }

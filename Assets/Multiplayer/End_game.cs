@@ -22,8 +22,8 @@ public class End_game : MonoBehaviour
 
         Canvas_win.SetActive(true);
         multiplayer.scene1.SetActive(false); multiplayer.scene2.SetActive(false);
-        if (player2) { win1.SetActive(true); }
-        else win2.SetActive(true);
+        if (player2) { win2.SetActive(true); }
+        else win1.SetActive(true);
     }
     // Update is called once per frame
     void Update()

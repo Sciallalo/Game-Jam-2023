@@ -5,6 +5,7 @@ using UnityEngine;
 public class Neutrino : MonoBehaviour
 {
     private GameObject target;
+    [SerializeField] LanciaNeutrini lancia;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -25,10 +26,13 @@ public class Neutrino : MonoBehaviour
     {
         target = GameObject.FindGameObjectsWithTag("Nucleo")[0];
         StartCoroutine(kill_neutrino());
+        //lancia = GetComponentInParent<LanciaNeutrini>();
     }
 
     void Update()
     {
+       // if(lancia.finish) { Destroy(gameObject); }
+       if(target!=null)
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.03f);
     }
 

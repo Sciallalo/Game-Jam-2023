@@ -23,6 +23,7 @@ public class Moovement : MonoBehaviour
     Transform left_top, rightTop;
 
     [SerializeField] bool Player2;
+    public bool instaced = false;
     [SerializeField] GameObject alieno;
 
     [SerializeField] GameObject NextScene;
@@ -30,6 +31,9 @@ public class Moovement : MonoBehaviour
     [SerializeField] Multiplayer_Manager multiplayer;
     [SerializeField] Camera nextCamera;
     [SerializeField] TimeLimit tl;
+
+    [SerializeField] GameObject NextScene_new1;
+    [SerializeField] GameObject NextScene_new2;
     //bool done = false;
     //[SerializeField] bool collided = false;
 
@@ -37,8 +41,9 @@ public class Moovement : MonoBehaviour
     void Start()
     {
         Collider collider = GetComponent<Collider>();
+        this.GetComponent<MeshRenderer>().enabled = true;
 
-        if(gameObject.name == "LeftHand")
+        if (gameObject.name == "LeftHand")
         {
             left_top = gameObject.transform.GetChild(0).transform;
             rightTop = other_hand.transform.GetChild(0).transform;
@@ -55,6 +60,10 @@ public class Moovement : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        this.GetComponent<MeshRenderer>().enabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -114,17 +123,39 @@ public class Moovement : MonoBehaviour
 
     IEnumerator WaitWin()
     {
-        tl.win = true;
-        yield return new WaitForSeconds(3);
-        video.clip = videoclip;
-        video.Play();
-       // alieno.SetActive(false);
-        yield return new WaitForSeconds(3);
+        if(!instaced){
+            tl.win = true;
+            //tl.winner();
+            yield return new WaitForSeconds(3);
+            video.clip = videoclip;
+            video.Play();
+            // alieno.SetActive(false);
+            this.GetComponent<MeshRenderer>().enabled = false;
+            yield return new WaitForSeconds(3);
 
-        CurrentScene.SetActive(false);
-        NextScene.SetActive(true);
-        if (Player2) { multiplayer.Change_cam2(nextCamera); }
-        else { multiplayer.Change_cam1(nextCamera); }
+            /*
+            CurrentScene.SetActive(false);
+            NextScene.SetActive(true);
+            if (Player2) { multiplayer.Change_cam2(nextCamera); }
+            else { multiplayer.Change_cam1(nextCamera); }
+            */
+
+            GameObject s;
+            if (Player2)
+            {
+                s = Instantiate(NextScene_new2, new Vector3(0f, 0f, 0f), Quaternion.identity);
+                //multiplayer.Change_cam2(nextCamera); 
+                s.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0f, 0.5f, 1f);
+            }
+            else
+            {
+                s = Instantiate(NextScene_new1, new Vector3(0f, 0f, 0f), Quaternion.identity);
+                //multiplayer.Change_cam1(nextCamera); 
+                s.GetComponentInChildren<Camera>().rect = new Rect(0f, 0f, 0.5f, 1f);
+            }
+
+            Destroy(CurrentScene);
+        }
         // video.enabled = true;
         /*
          if (canvas != null)

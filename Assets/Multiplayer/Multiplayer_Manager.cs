@@ -11,11 +11,15 @@ public class Multiplayer_Manager : MonoBehaviour
     public GameObject Starting_Canvas;
     public GameObject Starting_Camera;
 
+    [SerializeField] GameObject scene1_1;
+    [SerializeField] GameObject scene1_2;
     // Start is called before the first frame update
     void Start()
     {
         cam1.rect = new Rect(0f,0f,0.5f,1f);
         cam2.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+
+       
     }
 
     // Update is called once per frame
@@ -25,12 +29,16 @@ public class Multiplayer_Manager : MonoBehaviour
     }
 
     public void playScene() {
-        scene1.SetActive(true);
-        scene2.SetActive(true);
+        //  scene1.SetActive(true);
+        //  scene2.SetActive(true);
+        Instantiate(scene1_1, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        Instantiate(scene1_2, new Vector3(0f, 0f, 0f), Quaternion.identity);
         Starting_Canvas.SetActive(false);
         Starting_Camera.SetActive(false);
-        cam1.rect = new Rect(0f, 0f, 0.5f, 1f);
-        cam2.rect = new Rect(0.5f, 0f, 0.5f, 1f);
+        scene1_1.GetComponentInChildren<Camera>().rect= new Rect(0f, 0f, 0.5f, 1f);
+        scene1_2.GetComponentInChildren<Camera>().rect = new Rect(0.5f, 0f, 0.5f, 1f);
+        //cam1.rect = new Rect(0f, 0f, 0.5f, 1f);
+        //cam2.rect = new Rect(0.5f, 0f, 0.5f, 1f);
     }
 
     public void Change_cam1(Camera cam) {
@@ -43,4 +51,6 @@ public class Multiplayer_Manager : MonoBehaviour
         cam2 = cam;
         cam2.rect = new Rect(0.5f, 0f, 0.5f, 1f);
     }
+
+   
 }
