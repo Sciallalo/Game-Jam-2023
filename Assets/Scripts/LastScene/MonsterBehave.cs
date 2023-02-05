@@ -5,31 +5,37 @@ using UnityEngine;
 
 public class MonsterBehave : MonoBehaviour
 {
-    [SerializeField] float increaseScaleStep;
-    [SerializeField] float decreaseScaleStep_percentage;
-    [SerializeField] float verticalMoveVelocity;
-    [SerializeField] float horizontalMoveVelocity;
+    [SerializeField] GalaxyManager galaxyManager;
+    [SerializeField] float increaseScaleStepPercentage;
+    [SerializeField] float decreaseScaleStepPercentage;
+    [SerializeField] float velocity;
+    
+
+    [SerializeField] int galaxyMalus;
+    int eatGalaxies;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        eatGalaxies = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float new_velocity = velocity * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.W)){
-            transform.position += new Vector3(0, 0, verticalMoveVelocity);
+            transform.position += new Vector3(0, 0, new_velocity);
         }
         if (Input.GetKey(KeyCode.S)) {
-            transform.position += new Vector3(0, 0, -verticalMoveVelocity);
+            transform.position += new Vector3(0, 0, -new_velocity);
         }
         if (Input.GetKey(KeyCode.A)) {
-            transform.position += new Vector3(-horizontalMoveVelocity, 0, 0);
+            transform.position += new Vector3(-new_velocity, 0, 0);
         }
         if (Input.GetKey(KeyCode.D)) {
-            transform.position += new Vector3(horizontalMoveVelocity, 0, 0);
+            transform.position += new Vector3(new_velocity, 0, 0);
         }
 
 
@@ -40,12 +46,29 @@ public class MonsterBehave : MonoBehaviour
         if(collision.collider.tag == "Galaxy")
         {
             Debug.Log("Galaxy Collision");
-            transform.localScale += new Vector3(increaseScaleStep, increaseScaleStep, increaseScaleStep);
+            transform.localScale *= increaseScaleStepPercentage;
+            galaxyManager.decreaseGalaxyCounter(collision.gameObject);
+            
         }
-        if(collision.collider.tag == "Boundaries")
+
+        else if(collision.collider.tag == "Boundaries")
         {
-            Debug.Log("Boundaries Collision");
-            transform.localScale *= decreaseScaleStep_percentage;
+            Debug.Log("Boundaries Collision: " + collision.collider.name);
+
+            if (collision.collider.name == "LeftB" || collision.collider.name == "RightB") {
+                transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            }
+            else if(collision.collider.name == "TopB" || collision.collider.name == "BottomB") {
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+            }
+
+            // Reduce scale of the monster
+            transform.localScale *= decreaseScaleStepPercentage;
+
+            // Apply a malus on the galaxy counter
+            if (eatGalaxies >= galaxyMalus) { eatGalaxies -= galaxyMalus; }
+            else { eatGalaxies = 0; }
+
         }
     }
 }
