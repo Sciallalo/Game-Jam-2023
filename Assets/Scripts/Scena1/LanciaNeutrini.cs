@@ -14,6 +14,7 @@ public class LanciaNeutrini : MonoBehaviour
     public float maxTime = 15f;
     private float currentTime;
     private float tmpTime;
+    public bool stop = false;
 
     private void Start()
     {
@@ -44,12 +45,13 @@ public class LanciaNeutrini : MonoBehaviour
 
         if(currentTime >= maxTime)
         {
+            stop = true;
             canvas.gameObject.SetActive(true);
             video.Play();
             StartCoroutine(WaitVideo());
         }
 
-        if(tmpTime >= Random.Range(.5f, 2f))
+        if(tmpTime >= Random.Range(.5f, 2f) && !stop)
         {
             Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
             var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
