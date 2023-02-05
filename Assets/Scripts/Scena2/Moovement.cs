@@ -8,18 +8,24 @@ using UnityEngine.Video;
 public class Moovement : MonoBehaviour
 {
     [SerializeField] GameObject other_hand;
-    [SerializeField] float moovement_velocity = 0.3f;
+
+
     [SerializeField] float range_z;
     [SerializeField] Transform center;
-    [SerializeField] float approachingVelocity = 1.5f;
-    [SerializeField] float max_distance = 0.6f;
+    [SerializeField] float approachingVelocity;
+    [SerializeField] float max_distance;
+    float moovement_velocity;
+    
     public Canvas canvas;
     public VideoPlayer video;
 
     bool WIN = false;
     float seed;
 
+    Vector3 top_hand_offset;
+
     Transform left_top, rightTop;
+
     //bool done = false;
     //[SerializeField] bool collided = false;
 
@@ -32,15 +38,19 @@ public class Moovement : MonoBehaviour
         {
             left_top = gameObject.transform.GetChild(0).transform;
             rightTop = other_hand.transform.GetChild(0).transform;
+            top_hand_offset = left_top.position - gameObject.transform.position;
         }
         else
         {
             left_top = other_hand.transform.GetChild(0).transform;
             rightTop = gameObject.transform.GetChild(0).transform;
+            top_hand_offset = rightTop.position - gameObject.transform.position;
         }
-        
+
         seed = UnityEngine.Random.Range(0, 100);
+
         moovement_velocity = UnityEngine.Random.Range(3f, 5f);
+
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, UnityEngine.Random.Range(-range_z, range_z));
     }
 
@@ -57,7 +67,10 @@ public class Moovement : MonoBehaviour
 
         else
         {
-            gameObject.transform.position += Vector3.MoveTowards(gameObject.transform.GetChild(0).position, center.position, approachingVelocity * Time.deltaTime) - gameObject.transform.GetChild(0).position;
+            Vector3 new_top_position = Vector3.MoveTowards(gameObject.transform.GetChild(0).position, center.position, approachingVelocity * Time.deltaTime);
+
+            gameObject.transform.position = new_top_position - top_hand_offset;
+            
         }
 
         if (Input.GetMouseButtonDown(0))
