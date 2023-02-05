@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Atom : MonoBehaviour
 {
+    [SerializeField] BlendCamera blendCam;
+
     public Transform orbitingObject;
     public Ellipse orbitPath;
 

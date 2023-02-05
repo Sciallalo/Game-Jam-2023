@@ -6,6 +6,8 @@ using UnityEngine.Video;
 
 public class LanciaNeutrini : MonoBehaviour
 {
+    [SerializeField] BlendCamera blendCam;
+
     public List<GameObject> elettroni;
     public GameObject neutrino;
     public Ellipse ellisse;
@@ -36,27 +38,31 @@ public class LanciaNeutrini : MonoBehaviour
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-        tmpTime += Time.deltaTime;
-
-        if (!CheckState()){
-            SceneManager.LoadScene(0);
-        }
-
-        if(currentTime >= maxTime)
+        if (blendCam.cameraPositioned)
         {
-            stop = true;
-            canvas.gameObject.SetActive(true);
-            video.Play();
-            StartCoroutine(WaitVideo());
-        }
+            currentTime += Time.deltaTime;
+            tmpTime += Time.deltaTime;
 
-        if(tmpTime >= Random.Range(.5f, 2f) && !stop)
-        {
-            Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
-            var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
-            tmp.GetComponent<Neutrino>().enabled = true;
-            tmpTime = 0;
+            if (!CheckState())
+            {
+                SceneManager.LoadScene(0);
+            }
+
+            if (currentTime >= maxTime)
+            {
+                stop = true;
+                canvas.gameObject.SetActive(true);
+                video.Play();
+                StartCoroutine(WaitVideo());
+            }
+
+            if (tmpTime >= Random.Range(.5f, 2f) && !stop)
+            {
+                Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
+                var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
+                tmp.GetComponent<Neutrino>().enabled = true;
+                tmpTime = 0;
+            }
         }
     }
 
