@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class Robot : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class Robot : MonoBehaviour
     public AudioSource pressedButton;
 
     public GameObject cv;
+    public GameObject canvas;
+    public VideoPlayer video;
 
     private void Start()
     {
+        video.Stop();
         pressedButton.Stop();
         code = cc.GetCodice();
 
@@ -95,7 +99,7 @@ public class Robot : MonoBehaviour
     {
         if (count == 3)
         {
-            SceneManager.LoadScene(0);
+            StartCoroutine(WaitVideo());
         }
         else
         {
@@ -155,5 +159,13 @@ public class Robot : MonoBehaviour
             
         }
         
+    }
+
+    IEnumerator WaitVideo()
+    {
+        canvas.gameObject.SetActive(true);
+        video.Play();
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
