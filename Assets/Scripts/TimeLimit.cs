@@ -8,7 +8,7 @@ public class TimeLimit : MonoBehaviour
 {
     public float maxTime = 10f;
     public Canvas canvas;
-    public Transform canvasError;
+    private Transform canvasError;
     public VideoPlayer video;
     public float seconds;
     private float currentTime;

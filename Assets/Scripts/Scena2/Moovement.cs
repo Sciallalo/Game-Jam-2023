@@ -83,7 +83,7 @@ public class Moovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.RightControl))
+        if (Input.GetKey(KeyCode.Space))
         {
             if (compute_offsetZ(left_top, rightTop, max_distance))
             {
