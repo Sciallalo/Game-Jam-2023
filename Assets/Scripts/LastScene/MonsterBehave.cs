@@ -51,6 +51,7 @@ public class MonsterBehave : MonoBehaviour
             galaxyManager.decreaseGalaxyCounter(collision.gameObject);
 
             eatGalaxies++;
+            GetComponent<AudioSource>().Play();
             Debug.Log(eatGalaxies);
 
             
