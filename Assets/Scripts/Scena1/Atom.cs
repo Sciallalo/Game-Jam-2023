@@ -16,7 +16,7 @@ public class Atom : MonoBehaviour
     float orbitSpeed;
     float pressedValue = 0f;
     float addValue = 0.005f;
-    float maxValue = 1f;
+    float maxValue = .6f;
     float atomVelocity;
 
     private void Start()
