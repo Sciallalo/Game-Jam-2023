@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
@@ -8,6 +9,8 @@ public class LanciaNeutrini : MonoBehaviour
 {
     [SerializeField] BlendCamera blendCam;
     [SerializeField] Atom atom;
+
+    public GameObject cv_gameplay;
 
     public List<GameObject> elettroni;
     public GameObject neutrino;
@@ -23,6 +26,7 @@ public class LanciaNeutrini : MonoBehaviour
     private void Start()
     {
         currentTime = 0;
+        blendCam.GetComponent<BlendCamera>().enabled = true;
         tmpTime = 0;
         video.Stop();
     }
@@ -42,6 +46,8 @@ public class LanciaNeutrini : MonoBehaviour
     {
         if (blendCam.cameraPositioned)
         {
+            if(!cv_gameplay.activeSelf) cv_gameplay.SetActive(true);
+
             currentTime += Time.deltaTime;
             tmpTime += Time.deltaTime;
 

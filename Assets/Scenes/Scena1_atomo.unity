@@ -693,7 +693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &885956294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,6 +1272,10 @@ PrefabInstance:
       propertyPath: neutrino
       value: 
       objectReference: {fileID: 1860105268}
+    - target: {fileID: 362145208862534324, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
+      propertyPath: cv_gameplay
+      value: 
+      objectReference: {fileID: 1487709075}
     - target: {fileID: 362145209475596934, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1323,6 +1327,10 @@ PrefabInstance:
     - target: {fileID: 362145209622665426, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
       propertyPath: orthographic size
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 520214769702683456, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 520214769702683457, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
       propertyPath: ln
