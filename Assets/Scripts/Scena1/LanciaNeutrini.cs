@@ -7,6 +7,7 @@ using UnityEngine.Video;
 public class LanciaNeutrini : MonoBehaviour
 {
     [SerializeField] BlendCamera blendCam;
+    [SerializeField] Atom atom;
 
     public List<GameObject> elettroni;
     public GameObject neutrino;
@@ -44,33 +45,40 @@ public class LanciaNeutrini : MonoBehaviour
             currentTime += Time.deltaTime;
             tmpTime += Time.deltaTime;
 
-            if (!CheckState())
-            {
-                SceneManager.LoadScene(0);
-            }
 
-            if (counter >= 5)
+            // Non puoi perdere
+            //if (!CheckState())
+            //{
+            //    SceneManager.LoadScene(0);
+            //}
+
+            //if (counter >= 5)
+            //{
+            //stop = true;
+            if (atom.WIN)
             {
-                stop = true;
-                canvas.gameObject.SetActive(true);
-                video.Play();
+                
                 StartCoroutine(WaitVideo());
+                
             }
+            //}
 
-            if (tmpTime >= Random.Range(.5f, 2f) && !stop)
-            {
-                counter++;
+            //if (tmpTime >= Random.Range(.5f, 2f) && !stop)
+            //{
+            //    counter++;
 
-                Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
-                var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
-                tmp.GetComponent<Neutrino>().enabled = true;
-                tmpTime = 0;
-            }
+            //    Vector2 orbitPos = ellisse.Evaluate(Random.Range(0f, 1f));
+            //    var tmp = Instantiate(neutrino, new Vector3(orbitPos.x, 0, orbitPos.y), Quaternion.identity);
+            //    tmp.GetComponent<Neutrino>().enabled = true;
+            //    tmpTime = 0;
+            //}
         }
     }
 
     IEnumerator WaitVideo()
     {
+        canvas.gameObject.SetActive(true);
+        video.Play();
         yield return new WaitForSeconds(4.176f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

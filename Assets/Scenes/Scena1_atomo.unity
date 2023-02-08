@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -330,6 +330,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4576356616482503409, guid: 1c0423ae6e6c0cd4ea2b74d5ac0ca11f, type: 3}
   m_PrefabInstance: {fileID: 382344092}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &510956195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 362145209535180010, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
+  m_PrefabInstance: {fileID: 362145210580481441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27e19afed4564b46bc1ae46106adb2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &538231441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1229,7 +1240,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AVOID THE NEUTRINOS!
+  m_Text: SPIN THE ELECTRONS
 --- !u!222 &1955638159
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1245,6 +1256,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 362145208862534320, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 362145208862534324, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
+      propertyPath: atom
+      value: 
+      objectReference: {fileID: 510956195}
     - target: {fileID: 362145208862534324, guid: ce6a8f4b1c21ef54aa4e2aeac10f35ad, type: 3}
       propertyPath: blendCam
       value: 
