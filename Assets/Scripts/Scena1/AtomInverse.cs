@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Atom : MonoBehaviour
+public class AtomInverse : MonoBehaviour
 {
     public bool WIN = false;
 
     public Transform orbitingObject;
     public Ellipse orbitPath;
 
-    [Range(0f,1f)]
+    [Range(0f, 1f)]
     public float orbitProgress = 0.25f;
     public float orbitPeriod = 3f;
 
@@ -28,7 +28,7 @@ public class Atom : MonoBehaviour
     void SetOrbitingObjectPosition()
     {
         Vector2 orbitPos = orbitPath.Evaluate(orbitProgress);
-        if(orbitingObject != null)
+        if (orbitingObject != null)
         {
             orbitingObject.localPosition = new Vector3(orbitPos.x, 0, orbitPos.y);
         }
@@ -36,19 +36,19 @@ public class Atom : MonoBehaviour
 
     void inputRead()
     {
-        if (Input.GetKey(KeyCode.A) && pressedValue <= maxValue)
+        if (Input.GetKey(KeyCode.D) && pressedValue <= maxValue)
         {
             pressedValue += addValue * atomVelocity * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.D) && pressedValue >= -maxValue)
+        else if (Input.GetKey(KeyCode.A) && pressedValue >= -maxValue)
         {
             pressedValue += -addValue * atomVelocity * Time.deltaTime;
         }
         else
         {
-            if(pressedValue != 0)
+            if (pressedValue != 0)
             {
-                if(pressedValue > 0)
+                if (pressedValue > 0)
                 {
                     pressedValue -= addValue * (atomVelocity * 2) * Time.deltaTime;
                 }
@@ -67,7 +67,7 @@ public class Atom : MonoBehaviour
         {
             inputRead();
 
-            if(orbitPeriod < 0.1f)
+            if (orbitPeriod < 0.1f)
             {
                 orbitPeriod = 0.1f;
             }
