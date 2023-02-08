@@ -9,19 +9,19 @@ public class Mover : MonoBehaviour
     {
         float new_velocity = velocity * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W))
         {
             transform.position += new Vector3(0, 0, new_velocity);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             transform.position += new Vector3(0, 0, -new_velocity);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.position += new Vector3(-new_velocity, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             transform.position += new Vector3(new_velocity, 0, 0);
         }

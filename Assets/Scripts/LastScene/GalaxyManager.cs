@@ -22,20 +22,6 @@ public class GalaxyManager : MonoBehaviour
         StartCoroutine(GalaxySpawner());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void LateUpdate()
-    {
-        //Vector2 halfWidthHeight = boundaries.getCurrentDimension() * 0.5f;
-        //Vector3 transform = new Vector3(Random.Range(-halfWidthHeight.x, halfWidthHeight.x), 0, Random.Range(-halfWidthHeight.y, halfWidthHeight.y));
-
-        //GameObject justSpawnedGalaxy = Instantiate(galaxy, transform, galaxy.transform.rotation);
-        //justSpawnedGalaxy.SetActive(true);
-    }
-
     IEnumerator GalaxySpawner()
     {
         while(true)
