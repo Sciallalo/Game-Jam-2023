@@ -5,6 +5,8 @@ using UnityEngine;
 public class Atom : MonoBehaviour
 {
     [SerializeField] BlendCamera blendCam;
+    
+    public bool WIN = false;
 
     public Transform orbitingObject;
     public Ellipse orbitPath;
@@ -16,13 +18,13 @@ public class Atom : MonoBehaviour
     float orbitSpeed;
     float pressedValue = 0f;
     float addValue = 0.005f;
-    float maxValue = 0.2f;
+    float maxValue = 1f;
     float atomVelocity;
 
     private void Start()
     {
         SetOrbitingObjectPosition();
-        atomVelocity = 50;
+        atomVelocity = 25;
     }
 
     void SetOrbitingObjectPosition()
@@ -62,18 +64,27 @@ public class Atom : MonoBehaviour
 
     private void Update()
     {
-        inputRead();
+        Debug.Log("pressedValue:  "+ pressedValue);
 
-        if(orbitPeriod < 0.1f)
+        if (Mathf.Abs(pressedValue) < maxValue)
         {
-            orbitPeriod = 0.1f;
+            inputRead();
+
+            if(orbitPeriod < 0.1f)
+            {
+                orbitPeriod = 0.1f;
+            }
+
+        }
+        else
+        {
+            Debug.Log("NICEEEEEEEEEEEEEE");
+            WIN = true;
         }
 
         orbitSpeed = 1f / orbitPeriod;
-
         orbitProgress += pressedValue * orbitSpeed;
         orbitProgress %= 1f;
-
         SetOrbitingObjectPosition();
     }
 }
