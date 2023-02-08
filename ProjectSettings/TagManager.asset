@@ -10,6 +10,7 @@ TagManager:
   - dog
   - Boundaries
   - Galaxy
+  - CanvasError
   layers:
   - Default
   - TransparentFX
