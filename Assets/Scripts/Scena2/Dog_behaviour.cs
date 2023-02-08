@@ -15,6 +15,10 @@ public class Dog_behaviour : MonoBehaviour
     [SerializeField] float increment =0.01f;
     [SerializeField] float time = 1.958333f;
     [SerializeField] AlembicStreamPlayer pianta;
+    
+    [SerializeField] Material matPianta;
+    [SerializeField] Color emissionColor;
+
 
     public Canvas canvas;
     public VideoPlayer video;
@@ -76,7 +80,8 @@ public class Dog_behaviour : MonoBehaviour
     {
         percentage += increment * Time.deltaTime;
         pianta.UpdateImmediately(percentage);
-        
+        matPianta.EnableKeyword ("_EMISSION");
+        matPianta.SetColor("_EmissionColor", emissionColor * percentage*2);
     }
 
     IEnumerator WaitWin()

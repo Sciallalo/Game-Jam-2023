@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a09336c6e4bff4b947d867730b67b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blendCam: {fileID: 0}
   elettroni:
   - {fileID: 362145209535180007}
   - {fileID: 362145209580905920}
@@ -493,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27e19afed4564b46bc1ae46106adb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blendCam: {fileID: 0}
   orbitingObject: {fileID: 362145209535180011}
   orbitPath: {fileID: 362145210227476044}
   orbitProgress: 0.25
@@ -606,6 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27e19afed4564b46bc1ae46106adb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blendCam: {fileID: 0}
   orbitingObject: {fileID: 362145209580905924}
   orbitPath: {fileID: 362145210227476044}
   orbitProgress: 0.75
@@ -929,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27e19afed4564b46bc1ae46106adb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blendCam: {fileID: 0}
   orbitingObject: {fileID: 362145209951637652}
   orbitPath: {fileID: 362145208960723023}
   orbitProgress: 0.5
@@ -1114,6 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b27e19afed4564b46bc1ae46106adb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blendCam: {fileID: 0}
   orbitingObject: {fileID: 362145210195465888}
   orbitPath: {fileID: 362145208960723023}
   orbitProgress: 0

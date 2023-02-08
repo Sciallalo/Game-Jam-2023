@@ -25,9 +25,14 @@ public class Robot : MonoBehaviour
     public GameObject canvas;
     public VideoPlayer video;
     public VideoPlayer livello_prima;
+    
+    public Transform canvasError;
+
 
     private void Start()
     {
+        canvasError = GameObject.FindWithTag("CanvasError").transform;
+
         livello_prima.Stop();
         video.Stop();
         pressedButton.Stop();
@@ -169,6 +174,8 @@ public class Robot : MonoBehaviour
 
     IEnumerator GoBack()
     {
+        canvasError.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         canvas.gameObject.SetActive(true);
         livello_prima.Play();
         yield return new WaitForSeconds(4.5f);
