@@ -8,12 +8,14 @@ public class TimeLimit : MonoBehaviour
 {
     public float maxTime = 10f;
     public Canvas canvas;
+    public Transform canvasError;
     public VideoPlayer video;
     public float seconds;
     private float currentTime;
     void Start()
     {
         currentTime = maxTime;
+        canvasError = GameObject.FindWithTag("CanvasError").transform;
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class TimeLimit : MonoBehaviour
 
     IEnumerator GoBack()
     {
+        canvasError.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         canvas.gameObject.SetActive(true);
         video.Play();
         yield return new WaitForSeconds(seconds);
